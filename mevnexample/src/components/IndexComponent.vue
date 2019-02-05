@@ -50,6 +50,15 @@ export default {
     deletePost(id) {
       const uri = `http://localhost:4000/posts/delete/${id}`;
       this.axios.delete(uri).then(response => {
+        this.$toast.success({
+          message: "Post has been deleted!",
+          showDuration: 3000,
+          showMethod: "slideDown",
+          closeMethod: "slideUp",
+          hideMethod: "slideUp",
+          position: "bottom right",
+          progressBar: true
+        });
         this.posts.splice(this.posts.indexOf(id), 1);
       });
     }

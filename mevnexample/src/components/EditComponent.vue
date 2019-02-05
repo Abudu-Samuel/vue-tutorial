@@ -43,6 +43,15 @@ export default {
     updatePost() {
       const uri = `http://localhost:4000/posts/update/${this.$route.params.id}`;
       this.axios.put(uri, this.post).then(() => {
+        this.$toast.success({
+          message: "Post has been updated!",
+          showDuration: 3000,
+          showMethod: "slideDown",
+          closeMethod: "slideUp",
+          hideMethod: "slideUp",
+          position: "bottom right",
+          progressBar: true
+        });
         this.$router.push({ name: "posts" });
       });
     }
